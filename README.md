@@ -1,5 +1,7 @@
 # MIDI_Synthesizer
 
+Projet TUT de L3 Informatique
+
 ## JAVA FX
 Librairie JavaFX (si besoin) dans le dossier ./libs/
 
