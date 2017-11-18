@@ -2,6 +2,10 @@
 
 Projet TUT de L3 Informatique
 
+##Installation des dépendances :
+Ubuntu :
+>sudo apt install openjdk-8-jdk openjdk-8-jre openjfx
+
 ## JAVA FX
 Librairie JavaFX (si besoin) dans le dossier ./libs/
 
