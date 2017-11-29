@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="851.0" prefWidth="1134.0" style="-fx-background-color: #34495e;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MAO.Controller">
+   <children>
+      <Pane prefHeight="80.0" prefWidth="1134.0" style="-fx-background-color: #bdc3c7;">
+         <children>
+            <Button id="close_btn" layoutX="1082.0" onMouseClicked="#closeApplication" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="Close" />
+            <Button layoutX="1030.0" layoutY="2.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="Tab" />
+            <Button layoutX="974.0" layoutY="2.0" mnemonicParsing="false" text="Reduce" />
+            <Label layoutX="34.0" layoutY="14.0" prefHeight="59.0" prefWidth="703.0" text="MAO Project">
+               <font>
+                  <Font name="Century Gothic Bold" size="41.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Separator layoutY="82.0" prefHeight="0.0" prefWidth="1134.0" />
+      <Pane fx:id="mainContent" layoutY="85.0" prefHeight="766.0" prefWidth="1134.0">
+         <children>
+            <ScrollPane prefHeight="766.0" fx:id="keyContainer" prefWidth="190.0" style="-fx-background-color: #2c3e50;">
+               <content>
+                  <GridPane fx:id="pianoKeys" prefHeight="764.0" prefWidth="186.0" style="-fx-background-color: #34495e;">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints />
+                     </rowConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+            <Pane layoutX="190.0" layoutY="6.0" prefHeight="760.0" prefWidth="944.0">
+               <children>
+                  <Separator layoutX="-3.0" layoutY="-8.0" orientation="VERTICAL" prefHeight="766.0" prefWidth="0.0" />
+                  <Label layoutX="22.0" layoutY="6.0" prefHeight="17.0" prefWidth="175.0" text="Menu" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="36.0" />
+                     </font>
+                  </Label>
+                  <Separator layoutX="22.0" layoutY="59.0" prefHeight="3.0" prefWidth="881.0" />
+                  <TextField layoutX="22.0" layoutY="117.0" prefHeight="25.0" prefWidth="396.0" fx:id="midiFilePath" />
+                  <Label layoutX="22.0" layoutY="84.0" prefHeight="17.0" prefWidth="317.0" text="Jouer un fichier midi :" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="446.0" layoutY="117.0" mnemonicParsing="false" text="Play" onMouseClicked="#playMidiFile" textAlignment="CENTER">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="499.0" layoutY="117.0" mnemonicParsing="false" text="Stop" onMouseClicked="#stopMidiFile" textAlignment="CENTER">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </Button>
+                  <Separator layoutX="22.0" layoutY="203.0" prefHeight="3.0" prefWidth="881.0" />
+                  <Label layoutX="22.0" layoutY="223.0" prefHeight="23.0" prefWidth="218.0" text="Jouer avec un clavier" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="18.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="22.0" layoutY="264.0" mnemonicParsing="false" text="Charger" textAlignment="CENTER" onMouseClicked="#loadMidiDevices">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </Button>
+                  <ListView layoutX="22.0" layoutY="308.0" prefHeight="200.0" prefWidth="200.0" fx:id="listMidiDevices"/>
+                  <Button layoutX="110.0" layoutY="263.0" mnemonicParsing="false" text="Valider" onMouseClicked="#playWithKeyboard">
+                     <font>
+                        <Font name="Century Gothic" size="12.0" />
+                     </font>
+                  </Button>
+                  <Separator layoutX="278.0" layoutY="223.0" orientation="VERTICAL" prefHeight="524.0" prefWidth="0.0" />
+                  <Label layoutX="308.0" layoutY="223.0" prefHeight="17.0" prefWidth="317.0" text="Jouer un accord" textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="18.0" />
+                     </font>
+                  </Label>
+                  <ProgressBar layoutX="22.0" layoutY="158.0" prefHeight="18.0" prefWidth="522.0" progress="0.0" fx:id="progressBar" />
+                  <TabPane layoutX="308.0" layoutY="255.0" prefHeight="491.0" prefWidth="612.0" style="-fx-border-color: #ecf0f1;" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab fx:id="Ct" text="Do ( C )">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        </content>
+                      </Tab>
+                      <Tab fx:id="DTab" text="Ré ( D )">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        </content>
+                      </Tab>
+                        <Tab fx:id="ETab" text="Mi ( E )">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                           </content>
+                        </Tab>
+                        <Tab fx:id="FTab" text="Fa ( F )">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                           </content>
+                        </Tab>
+                        <Tab fx:id="GTab" text="Sol ( G )">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                           </content>
+                        </Tab>
+                        <Tab fx:id="ATab" text="La ( A )">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                           </content>
+                        </Tab>
+                        <Tab fx:id="BTab" text="Si ( B )">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-border-color: #ecf0f1;" />
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+                  <Label layoutX="22.0" layoutY="517.0" prefHeight="23.0" prefWidth="200.0" text="Instrument " textFill="WHITE">
+                     <font>
+                        <Font name="Century Gothic" size="18.0" />
+                     </font>
+                  </Label>
+                  <ListView layoutX="22.0" layoutY="549.0" prefHeight="200.0" prefWidth="200.0" fx:id="listInstrument" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</Pane>
