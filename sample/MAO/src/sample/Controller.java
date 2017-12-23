@@ -52,7 +52,7 @@ public class Controller implements Initializable {
             try{
                 // Ici tu rentre ton input et output en fonction de ce qu'il te faut
                 input   = MidiSystem.getMidiDevice(midiDevices[1]);
-                output  = MidiSystem.getMidiDevice(midiDevices[5]);
+                output  = MidiSystem.getMidiDevice(midiDevices[3]);
 
                 Receiver rcvr;
                 try {

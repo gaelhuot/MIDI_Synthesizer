@@ -14,6 +14,7 @@ public class Touche extends Parent {
     private int positionY = 0;//ordonnée de la touche
     private int note = 0;//note correspond au numéro MIDI de la note qui doit être jouée quand on appuie sur la touche
     private Instru instru;
+    private boolean pressed;
 
     Rectangle fond_touche = new Rectangle(75,75,Color.WHITE);
     Text lettre_touche = new Text();
@@ -24,6 +25,7 @@ public class Touche extends Parent {
         positionY = posY;
         note = n;
         instru = ins;
+        pressed = false;
 
         fond_touche = new Rectangle(75,75,Color.WHITE);
         fond_touche.setArcHeight(10);
@@ -67,12 +69,18 @@ public class Touche extends Parent {
 
 
     public void appuyer(){
+        if (this.pressed)
+        {
+            return;
+        }
+        this.pressed = true;
         fond_touche.setFill(Color.DARKGREY);
         this.setTranslateY(positionY+2);
         instru.note_on(note);
     }
 
     public void relacher(){
+        this.pressed = false;
         fond_touche.setFill(Color.WHITE);
         this.setTranslateY(positionY);
         instru.note_off(note);

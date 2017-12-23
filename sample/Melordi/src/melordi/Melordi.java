@@ -18,22 +18,26 @@ public class Melordi extends Application {
         Group root = new Group();
         Scene scene = new Scene(root, 500, 500, Color.WHITE);
 
+        Metronome mon_metronome = new Metronome();
+        root.getChildren().add(mon_metronome);
+
         Instru mon_instru = new Instru();
 
-        Clavier mon_clavier = new Clavier(mon_instru);//on créé un objet clavier
-        root.getChildren().add(mon_clavier);//on l'ajoute à notre groupe root
+        Clavier mon_clavier = new Clavier(mon_instru);
+        root.getChildren().add(mon_clavier);
 
-        ChangeInstru mon_changeinstru = new ChangeInstru(mon_instru);//on créé notre nouvel objet
+        ChangeInstru mon_changeinstru = new ChangeInstru(mon_instru);
         root.getChildren().add(mon_changeinstru);
 
-
+        Son mon_son = new Son(mon_clavier);
+        mon_instru.volume.bind(mon_son.slider.valueProperty());//on lie les deux paramètres
+        root.getChildren().add(mon_son);
 
         primaryStage.setScene(scene);
         primaryStage.show();
-
         mon_clavier.requestFocus();
-
     }
+
 
 
 }

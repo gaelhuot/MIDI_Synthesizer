@@ -1,5 +1,8 @@
 package melordi;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sound.midi.MidiSystem;
@@ -9,7 +12,7 @@ import javax.sound.midi.Synthesizer;
 
 public class Instru {
 
-    public int volume = 100;
+    public SimpleIntegerProperty volume = new SimpleIntegerProperty(100);
 
     private Synthesizer synthetiseur;
     private MidiChannel canal;
@@ -31,7 +34,7 @@ public class Instru {
 
     //Joue la note dont le numéro est en paramètre
     public void note_on(int note){
-        canal.noteOn(note, volume);
+        canal.noteOn(note, volume.get());
     }
     //Arrête de jouer la note dont le numéro est en paramètre
     public void note_off(int note){
