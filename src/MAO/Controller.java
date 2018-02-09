@@ -16,10 +16,7 @@ import javax.sound.midi.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.concurrent.Executors;
 
 public class Controller implements Initializable {
@@ -98,6 +95,7 @@ public class Controller implements Initializable {
         double maxWidth     = 190;
         double maxHeight    = 766 / keysCount;
 
+        System.out.println(keysCount);
 
         // Touches du piano
         keysBtn = new Button[keysCount];
@@ -191,13 +189,11 @@ public class Controller implements Initializable {
             }
         }
 
-        maxKey = 120;
-        minKey = 30;
+        //maxKey = 120;
+        //minKey = 30;
     }
 
-    private void addNotesToTrack(
-            Track track,
-            Track trk) throws InvalidMidiDataException {
+    private void addNotesToTrack(Track track, Track trk) throws InvalidMidiDataException {
         for (int ii = 0; ii < track.size(); ii++) {
             MidiEvent me = track.get(ii);
             MidiMessage mm = me.getMessage();
@@ -212,6 +208,7 @@ public class Controller implements Initializable {
                 }
                 if (com > 0) {
                     byte[] b = sm.getMessage();
+                    System.out.println(me.getTick() + " - " + Arrays.toString(b));
                     int l = (b == null ? 0 : b.length);
                     MetaMessage metaMessage = new MetaMessage(com, b, l);
                     MidiEvent me2 = new MidiEvent(metaMessage, me.getTick());
@@ -263,6 +260,7 @@ public class Controller implements Initializable {
         }
 
         sequencer.setSequence(sequence);
+        sequencer.setTempoInBPM(250);
         sequencer.start();
     }
 
